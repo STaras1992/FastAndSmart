@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fast And Smart</string>
+    <string name="game_name">Fast And Smart</string>
+    <string name="string_newGame">משחק חדש</string>
+    <string name="string_settings">הגדרות</string>
+    <string name="string_scores">תוצאות</string>
+    <string name="string_exit">יציאה</string>
+    <string name="version_string">"גירסה 1.0 "</string>
+    <string name="string_basicStage">בסיסי</string>
+    <string name="string_middle_stage">מתקדם</string>
+    <string name="string_hard_stage">מקצועי</string>
+    <string name="string_pressAgain_to_exit">לחץ שוב ליציאה</string>
+    <string name="string_start">התחל</string>
+    <string name="language">שפה</string>
+    <string name="language_name">עברית</string>
+    <string name="message_correct">נכון</string>
+    <string name="message_wrong">לא נכון</string>
+    <string name="message_time_out">זמן נגמר</string>
+    <string name="message_ready">נא להתכונן</string>
+    <string name="message_go">התחל</string>
+    <string name="dialog_time_out">הזמן נגמר</string>
+    <string name="dialog_wrong_answer">תשובה לא נכונה</string>
+    <string name="try_again">לנסות שוב</string>
+    <string name="cancel">ביטול</string>
+    <string name="to_continue">להמשיך</string>
+    <string name="sound">שמע</string>
+    <string name="on">פעיל</string>
+    <string name="off">כבוי</string>
+    <string name="music">מוזיקה</string>
+    <string name="level_complete">שלב הושלם</string>
+    <string name="level_complete_comment">עבודה יפה, נעבור לשלב הבא?</string>
+    <string name="next_level">שלב הבא</string>
+    <string name="continue_comment">האם להמשיך?</string>
+    <string name="try_again_comment">ננסה שוב?</string>
+    <string name="sound_off">שמע כבוי</string>
+    <string name="sound_on">שמע דלוק</string>
+    <string name="music_off">מוזיקה כבויה</string>
+    <string name="music_on">מוזיקה דלוקה</string>
+    <string name="share">שתף</string>
+    <string name="wrong">לא נכון</string>
+    <string name="newGame_expertMode">משחק מתקדם</string>
+    <string name="newGame_classicMode">משחק קלאסי</string>
+    <string name="rate">דרג אותנו</string>
+    <string name="pop_up_how_to_play">החלק את הכרטיסייה לכיוון תשובה נכונה</string>
+    <string name="pop_up_lifes">מספר החיים שנשארו</string>
+    <string name="pop_up_cards_left">מספר כלפים עד סיום השלב</string>
+    <string name="pop_up_freeze_button">לחץ כדי להקפיא את השעון</string>
+    <string name="pop_up_fifty_fifty">לחץ כדי למחוק שתי אפשרויות</string>
+    <string name="pop_up_timer">" זמן שנשאר לבחור תשובה"</string>
+    <string name="pop_up_question">תרגיל אותו צריך לפתור נכון</string>
+    <string name="pop_up_answers">אפשרות לתשובה נכונה</string>
+    <string name="basic_stage_description">תשפרו את את היכולות האריתמטיות שלכם</string>
+    <string name="middle_stage_description">תבחנו את הידע שלכם במטמיקה</string>
+    <string name="high_stage_description">תהפכו לגאון מתמטי</string>
+    <string name="even">זוגי</string>
+    <string name="odd">אי זוגי</string>
+    <string name="rate_btnString">דרג</string>
+    <string name="tnx_rating">תודה שדירגת אותנו</string>
+    <string name="save">שמור</string>
+    <string name="dialog_score">הניקוד:</string>
+    <string name="next_stage">רמה הבאה</string>
+    <string name="congratulations">כל הכבוד</string>
+    <string name="enter_name">הכנס שם</string>
+
+    <string-array name="language">
+        <item>עברית</item>
+        <item>אנגלית</item>
+    </string-array>
+    <string name="plus_life">"חיים +1 "</string>
+    <string name="plus_freeze">הקפאה +1</string>
+    <string name="plus_fifty_fifty">+1 50/50</string>
+    <string name="left_to_next_stage">שלבים לרמה הבאה:</string>
+    <string name="stage_completed">כל הכבוד !עברת את הרמה</string>
+    <string name="next_stage_openned">עבודה יפה!רמה הבאה זמינה מעכשיו</string>
+    <string name="next_stage_available">רמה הבאה זמינה למשחק</string>
+    <string name="questions_title">תרגיל</string>
+    <string name="timer_title">שעון</string>
+    <string name="answers_title">תשובות</string>
+    <string name="lifes_title">חיים</string>
+    <string name="cards_left_title">כרטיסיות נשארו</string>
+    <string name="start_playing_title">איך לשחק</string>
+    <string name="score_is">התוצאה שלך היא</string>
+    <string name="score">ניקוד:</string>
+
+</resources>

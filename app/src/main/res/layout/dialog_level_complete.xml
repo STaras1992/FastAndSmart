@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    android:theme="@style/DialogEndGame"
+    android:background="@drawable/dialog_end_game"
+    >
+
+    <ImageView
+        android:layout_width="124dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/success_icon_36" />
+
+    <TextView
+        android:id="@+id/level_complete_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/level_complete"
+        android:textColor="@color/text_black"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/dialog_ask_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:gravity="center"
+        android:text="@string/level_complete_comment"
+        android:textSize="22sp"
+        android:textColor="@color/text_black"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/dialog_button_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/cancel"
+            android:textColor="@color/text_black"
+            android:background="@drawable/button_dialog"/>
+
+        <Button
+            android:id="@+id/dialog_button_next_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/next_level"
+            android:textColor="@color/text_black"
+            android:background="@drawable/button_dialog"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">Fast And Smart</string>
+    <string name="game_name">Fast And Smart</string>
+    <string name="string_newGame">New game</string>
+    <string name="string_settings">Settings</string>
+    <string name="string_scores">Best scores</string>
+    <string name="string_exit">Exit</string>
+    <string name="version_string">ver 1.0</string>
+    <string name="string_basicStage">Basic</string>
+    <string name="string_middle_stage">Advance</string>
+    <string name="string_hard_stage">Pro</string>
+    <string name="string_pressAgain_to_exit">Press again to exit</string>
+    <string name="string_start">Start</string>
+    <string name="language">Language</string>
+    <string name="language_name">English</string>
+    <string name="message_correct">Correct!</string>
+    <string name="message_wrong">Wrong!</string>
+    <string name="message_time_out">Time out!</string>
+    <string name="message_ready">Ready up</string>
+    <string name="message_go">Go</string>
+    <string name="dialog_time_out">Time is out</string>
+    <string name="dialog_wrong_answer">Wrong answer!</string>
+    <string name="try_again">Try again</string>
+    <string name="cancel">Cancel</string>
+    <string name="to_continue">continue</string>
+    <string name="sound">Sound</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="music">Music</string>
+    <string name="level_complete">Level complete</string>
+    <string name="level_complete_comment">Good job, are you ready for next level?</string>
+    <string name="next_level">Next level</string>
+    <string name="continue_comment">Are you want to continue?</string>
+    <string name="try_again_comment">Are you want to try again?</string>
+    <string name="sound_off">Sound off</string>
+    <string name="sound_on">Sound on</string>
+    <string name="music_off">Music off</string>
+    <string name="music_on">Music on</string>
+    <string name="share">Share</string>
+    <string name="wrong">Wrong!</string>
+    <string name="newGame_expertMode">Challange mode</string>
+    <string name="newGame_classicMode">Classic mode</string>
+    <string name="pop_up_how_to_play">Just swipe card to right answer</string>
+    <string name="pop_up_lifes">Your lifes remaining</string>
+    <string name="pop_up_cards_left">Cards left to complete the level</string>
+    <string name="pop_up_freeze_button">Click for freeze the timer</string>
+    <string name="pop_up_fifty_fifty">Click for remove two options</string>
+    <string name="pop_up_timer">Time left for answer</string>
+    <string name="pop_up_question">Exercise you need to solve</string>
+    <string name="pop_up_answers">Possible correct answer</string>
+    <string name="rate">Rate us</string>
+    <string name="basic_stage_description">Improve your basic arithmetic skills</string>
+    <string name="middle_stage_description">Test your math knowledge</string>
+    <string name="high_stage_description">Become a math genius</string>
+    <string name="even">even</string>
+    <string name="odd">odd</string>
+    <string name="rate_btnString">Rate</string>
+    <string name="tnx_rating">Thanks for rating us</string>
+    <string name="save">Save</string>
+    <string name="dialog_score">Score is:</string>
+    <string name="next_stage">Next stage</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="enter_name">enter your name</string>
+
+    <string-array name="language">
+        <item>Hebrew</item>
+        <item>English</item>
+    </string-array>
+    <string name="plus_life">+1 life</string>
+    <string name="plus_freeze">+1 freeze</string>
+    <string name="plus_fifty_fifty">+1 50/50</string>
+    <string name="left_to_next_stage">Levels for next stage:</string>
+    <string name="stage_completed">Well done! Stage completed.</string>
+    <string name="next_stage_openned">Good job! Next stage available now.</string>
+    <string name="next_stage_available">Next stage available</string>
+    <string name="questions_title">Exercise card</string>
+    <string name="timer_title">Timer</string>
+    <string name="answers_title">Answers</string>
+    <string name="lifes_title">Lifes</string>
+    <string name="cards_left_title">Cards left</string>
+    <string name="start_playing_title">How to play</string>
+    <string name="score_is">Your Score Is</string>
+    <string name="score">Score:</string>
+
+</resources>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    android:theme="@style/DialogEndGame"
+    android:background="@drawable/dialog_end_game"
+    android:id="@+id/dialog_end_game_layout"
+
+    >
+
+<!--    <ImageView-->
+<!--        android:layout_width="124dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:src="@drawable/wrong_icon_36" />-->
+
+    <TextView
+        android:id="@+id/dialog_message_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/dialog_wrong_answer"
+        android:textColor="@color/text_black"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/dialog_temp_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="@color/text_black"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/dialog_wrong_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="1+1+1=4"
+        android:textColor="@color/colorBadAnswer"
+        android:drawableEnd="@drawable/wrong_icon_36"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/dialog_correct_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="1+1+1=3"
+        android:drawableEnd="@drawable/success_icon_36"
+        android:textColor="@color/colorGoodAnswer"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/dialog_ask_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:gravity="center"
+        android:text="@string/try_again_comment"
+        android:textSize="24sp"
+        android:textColor="@color/text_black"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/dialog_button_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/cancel"
+            android:textColor="@color/text_black"
+            android:background="@drawable/button_dialog"/>
+
+        <Button
+            android:id="@+id/dialog_button_try_again"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/try_again"
+            android:textColor="@color/text_black"
+            android:background="@drawable/button_dialog"/>
+
+    </LinearLayout>
+
+</LinearLayout>

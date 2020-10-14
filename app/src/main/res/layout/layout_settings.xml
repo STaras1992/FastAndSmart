@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_list_settings"
+    android:id="@+id/layout_settings">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/string_settings"
+        android:textAllCaps="true"
+        android:textSize="40sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20sp"
+        android:singleLine="true"
+        android:id="@+id/settingHeader"
+        android:fontFamily="serif-monospace"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settingHeader"
+        android:text="@string/language"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20sp"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"
+        android:id="@+id/languageText"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/languageText"
+        android:layout_marginLeft="80sp"
+        android:layout_marginRight="80sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="1sp"
+        android:singleLine="true"
+        android:id="@+id/languageButton"
+        android:background="@drawable/ripple_effect_settings"
+        android:entries="@array/language"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/languageButton"
+        android:text="@string/sound"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:layout_alignLeft="@id/languageButton"
+        android:layout_marginTop="25sp"
+        android:layout_centerHorizontal="false"
+        android:id="@+id/soundText"/>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/soundText"
+        android:layout_alignRight="@id/languageButton"
+        android:checked="true"
+        android:text="@string/on"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:id="@+id/soundBtn"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/soundBtn"
+        android:text="@string/music"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:layout_alignLeft="@id/languageButton"
+        android:layout_marginTop="25sp"
+        android:layout_centerHorizontal="false"
+        android:id="@+id/musicText"/>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/musicText"
+        android:layout_alignRight="@id/languageButton"
+        android:checked="true"
+        android:text="@string/on"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:id="@+id/musicBtn"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/musicBtn"
+        android:layout_marginLeft="80sp"
+        android:layout_marginRight="80sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25sp"
+        android:text="@string/share"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:singleLine="true"
+        android:id="@+id/shareBtn"
+        android:background="@drawable/ripple_effect_settings"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shareBtn"
+        android:text="@string/rate"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="25sp"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"
+        android:id="@+id/rateText"/>
+
+
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100sp"
+        android:layout_marginRight="80sp"
+        android:layout_marginTop="1dp"
+        android:layout_gravity="center_horizontal"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:layout_below="@+id/rateText"
+        android:isIndicator="false"
+        android:theme="@style/RatingBar"
+        android:rating="0"
+        android:saveEnabled="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rating"
+        android:layout_marginLeft="80sp"
+        android:layout_marginRight="80sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15sp"
+        android:text="@string/rate_btnString"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:singleLine="true"
+        android:id="@+id/rateBtn"
+        android:background="@drawable/ripple_effect_settings"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rateBtn"
+        android:layout_marginRight="160sp"
+        android:layout_alignLeft="@+id/rateBtn"
+        android:layout_gravity="center"
+        android:layout_marginTop="25sp"
+        android:text="@string/cancel"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:id="@+id/cancelBtn"
+        android:background="@drawable/ripple_effect_settings"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/cancelBtn"
+        android:layout_marginLeft="160sp"
+        android:layout_alignRight="@+id/rateBtn"
+        android:layout_gravity="center"
+        android:layout_marginTop="25sp"
+        android:text="@string/save"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:id="@+id/saveBtn"
+        android:background="@drawable/ripple_effect_settings"/>
+
+</RelativeLayout>

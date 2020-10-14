@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="2dp"/>
+    <gradient
+        android:startColor="@color/dialog_button_color1"
+        android:endColor="@color/dialog_button_color1"
+        android:centerColor="@color/dialog_button_color2"
+        android:gradientRadius="20dp"
+        />
+    <padding android:left="10dp"
+        android:right="10dp" />
+    <stroke android:width="2dp"
+        android:color="@android:color/black"/>
+</shape>

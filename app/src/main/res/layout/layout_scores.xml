@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_list_score"
+    android:id="@+id/layout_scores">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/string_scores"
+        android:textSize="40sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:id="@+id/text_bestScores"
+        android:textAllCaps="true"/>
+
+        <ListView
+            android:layout_below="@+id/text_bestScores"
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/button_levels_back"
+            android:drawSelectorOnTop="false"
+            android:padding="6dp"
+            android:layout_margin="10dp"
+            android:divider="@drawable/shadow"
+            android:dividerHeight="8.0dp"
+            />
+    <Button
+        android:id="@+id/button_levels_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:drawableLeft="@drawable/ic_baseline_arrow_back_24"
+        android:text="Back"
+        android:textColor="@color/text_white"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:padding="7dp"
+        android:background="@drawable/ripple_btn_home_page"
+        android:textAllCaps="false"
+        />
+
+</RelativeLayout>

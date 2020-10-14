@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#03883F</color>
+    <color name="colorPrimaryDark">#035C33</color>
+    <color name="colorAccent">#FF0000</color>
+    <color name="colorLevelButton">#FAF600</color>
+    <color name="colorLevelButtonPressed">#CF1ACC</color>
+    <color name="colorCardBack">#F8F5E1</color>
+    <color name="colorGoodAnswer">#22FD02</color>
+    <color name="colorBadAnswer">#FF0000</color>
+    <color name="colorGameBacground">#FFFFFF</color>
+    <color name="colorBackgroundStart">#02566A</color>
+    <color name="colorBackgroundEnd">#FFBD6677</color>
+    <color name="colorBackgroundBrightStart">#139EBF</color>
+    <color name="colorBackgroundBrightEnd">#25FA5D7C</color>
+    <color name="settingBackground">#000000</color>
+    <color name="colorTimeOut">#FF0000</color>
+    <color name="timerLeft">#7DFF4E</color>
+    <color name="timerOver">#FF4949</color>
+    <color name="card_shadow">#8000</color>
+    <color name="card_background_default">#FBF6BF</color>
+    <color name="card_background_selected">#C5FB2E</color>
+    <color name="fab_color">#7EEC10</color>
+    <color name="text_black">#040404</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="star_yellow">#FFEF01</color>
+    <color name="white_yellow">#FFFFFF</color>
+    <color name="stage_description_text">#FAF61C</color>
+    <color name="score_color">#079E1B</color>
+    <color name="enter_name_hint">#F31A21</color>
+    <color name="start_color_button_home_page">#a3a3c2</color>
+    <color name="center_color_button_home_page">#c2a3c2</color>
+    <color name="end_color_button_home_page">#a3a3c2</color>
+    <color name="textSwitcher_color">#FFFB0E</color>
+    <color name="answers_color">#011B50</color>
+    <color name="dialog_bacground_color">#E5FAF1</color>
+    <color name="life_color">#9A0314</color>
+    <color name="cards_left_color">#0331BA</color>
+    <color name="fab_icon_color">#0C58CC</color>
+    <color name="dialog_button_color1">#0D4BAA</color>
+    <color name="dialog_button_color2">#F4F6AB</color>
+
+
+
+
+</resources>
