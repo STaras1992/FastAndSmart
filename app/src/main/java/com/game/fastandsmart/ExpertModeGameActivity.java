@@ -122,6 +122,7 @@ public class ExpertModeGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.expert_mode_layout);
+        SoundHandler.stopMusic();
         init();
         mSwipeCardView.setVisibility(View.INVISIBLE);
         startGame();
@@ -504,30 +505,6 @@ public class ExpertModeGameActivity extends AppCompatActivity {
             mTextSwitcherCenter.setText("-" + time + "msec");
             mActionHandler.postDelayed(continueGame,1500);
         }
-//        switch (mPoints) {
-//            case 10:
-//            case 20:
-//            case 30:
-//            case 40:
-//            case 50:
-//            case 60:
-//            case 70:
-//            case 80:
-//            case 90:
-//            case 100:
-//            case 110:
-//            case 120:
-//            case 130:
-//            case 140:
-//            case 150:
-//            case 160:
-//            case 170:
-//            case 180:
-//            case 190:
-//            case 200:
-//            default:
-//                break;
-//        }
     }
 
     public class CardSwipeListener implements SwipeCardView.OnCardFlingListener { //actions on cards swipe
@@ -538,14 +515,10 @@ public class ExpertModeGameActivity extends AppCompatActivity {
             Card swipedCard = (Card) dataObject;
             mLastAnswer = (String) mLeftAnswer.getText();
             if (swipedCard.getRightAnswer().equals(mLeftAnswer.getText())) {
-                if (MainActivity.haveSound) {
-                    mpCorrect.start();
-                }
+                SoundHandler.playCorrectAnswer();
                 actionOnQuestionFinish(CORRECT_ANSWER);
             } else {
-                if (MainActivity.haveSound) {
-                    mpWrong.start();
-                }
+                SoundHandler.playWrongAnswer();
                 actionOnQuestionFinish(WRONG_ANSWER);
             }
 
@@ -558,14 +531,10 @@ public class ExpertModeGameActivity extends AppCompatActivity {
             Card swipedCard = (Card) dataObject;
             mLastAnswer = (String) mRightAnswer.getText();
             if (swipedCard.getRightAnswer().equals(mRightAnswer.getText())) {
-                if (MainActivity.haveSound) {
-                    mpCorrect.start();
-                }
+                SoundHandler.playCorrectAnswer();
                 actionOnQuestionFinish(CORRECT_ANSWER);
             } else {
-                if (MainActivity.haveSound) {
-                    mpWrong.start();
-                }
+                SoundHandler.playWrongAnswer();
                 actionOnQuestionFinish(WRONG_ANSWER);
             }
 
@@ -578,14 +547,10 @@ public class ExpertModeGameActivity extends AppCompatActivity {
             Card swipedCard = (Card) dataObject;
             mLastAnswer = (String) mTopAnswer.getText();
             if (swipedCard.getRightAnswer().equals(mTopAnswer.getText())) {
-                if (MainActivity.haveSound) {
-                    mpCorrect.start();
-                }
+                SoundHandler.playCorrectAnswer();
                 actionOnQuestionFinish(CORRECT_ANSWER);
             } else {
-                if (MainActivity.haveSound) {
-                    mpWrong.start();
-                }
+                SoundHandler.playWrongAnswer();
                 actionOnQuestionFinish(WRONG_ANSWER);
             }
         }
@@ -598,14 +563,10 @@ public class ExpertModeGameActivity extends AppCompatActivity {
             Card swipedCard = (Card) dataObject;
             mLastAnswer = (String) mBottomAnswer.getText();
             if (swipedCard.getRightAnswer().equals(mBottomAnswer.getText())) {
-                if (MainActivity.haveSound) {
-                    mpCorrect.start();
-                }
+                SoundHandler.playCorrectAnswer();
                 actionOnQuestionFinish(CORRECT_ANSWER);
             } else {
-                if (MainActivity.haveSound) {
-                    mpWrong.start();
-                }
+                SoundHandler.playWrongAnswer();
                 actionOnQuestionFinish(WRONG_ANSWER);
             }
         }
@@ -706,5 +667,6 @@ public class ExpertModeGameActivity extends AppCompatActivity {
             return textView;
         }
     }
+
 }
 

@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     final int REQUEST_CODE_EXPERT_MODE = 2;
     final int REQUEST_CODE_SETTINGS = 3;
     final int REQUEST_CODE_BEST_SCORE = 4;
-    final String RECORDS_KEY ="records";
+    final String RECORDS_KEY = "records";
 
     Button m_ButtonClassicMode;
     Button m_ButtonExpertMode;
@@ -47,35 +47,9 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences mRecordsSharedPreferences;
     SharedPreferences.Editor mRecordsEditor;
     private Toast backToast;
-    public static boolean haveSound = true;
-    public static boolean haveMusic = true;
-    public static int langIdx;
+    private boolean mIsNewActivityStart = false;
     public boolean flagExit = false;
     SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-
-    public void startAnimated () {
-        LinearLayout constraintLayout = findViewById(R.id.LinearLayoutStatPage);
-        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(2000);
-        animationDrawable.setExitFadeDuration(2000);
-        animationDrawable.start();
-    }
-
-    public void startBackgroundSound (){
-        if (haveMusic) {
-            mpBtn = MediaPlayer.create(this, R.raw.click_05_fav);
-            mpSwitch = MediaPlayer.create(this, R.raw.click_01);
-            mpBackground = MediaPlayer.create(this, R.raw.background_music);
-            mpBackground.setLooping(true);
-            mpBackground.start();
-        }
-//        else {
-//            if (mpBackground.isPlaying()) {
-//                mpBackground.stop();
-//                mpBackground.release();
-//            }
-//        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,10 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
         mRecordsSharedPreferences = getSharedPreferences("best scores", MODE_PRIVATE);
         mRecordsEditor = mRecordsSharedPreferences.edit();
-
-//        SharedPreferences sh = getPreferences(MODE_PRIVATE);//MainPreferences
-//        sh.getBoolean("haveSound", haveSound);
-//        sh.getBoolean("haveMusic", haveMusic);
 
         m_ButtonBestScores = findViewById(R.id.button_BestScores);
         m_ButtonExit = findViewById(R.id.button_Exit);
@@ -101,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         m_ButtonExit.setOnClickListener(new ClickListener());
         m_ButtonExpertMode.setOnClickListener(new ClickListener());
         startAnimated();
-        startBackgroundSound();
+        initSound();
     }
 
     public class ClickListener implements View.OnClickListener {
@@ -111,32 +81,37 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.button_NewGameClassic:
-                    if (haveSound) { mpBtn.start(); }
+                    SoundHandler.playButtonClick();
                     intent = new Intent(MainActivity.this, StageActivity.class);
                     startActivityForResult(intent, REQUEST_CODE_CLASSIC_MODE);
+                    mIsNewActivityStart = true;
                     Animatoo.animateSlideLeft(MainActivity.this);
                     break;
                 case R.id.button_Settings:
-                    if (haveSound) { mpBtn.start(); }
+                    SoundHandler.playButtonClick();
                     intent = new Intent(MainActivity.this, SettingsActivity.class);
                     startActivityForResult(intent, REQUEST_CODE_SETTINGS);
+                    mIsNewActivityStart = true;
                     Animatoo.animateFade(MainActivity.this);
                     break;
                 case R.id.button_BestScores:
-                    if (haveSound) { mpBtn.start(); }
+                    SoundHandler.playButtonClick();
                     intent = new Intent(MainActivity.this, BestScoresActivity.class);
                     startActivityForResult(intent, REQUEST_CODE_BEST_SCORE);
+                    mIsNewActivityStart = true;
                     Animatoo.animateFade(MainActivity.this);
                     break;
                 case R.id.button_NewGameExpert:
-                    if (haveSound) { mpBtn.start(); }
+                    SoundHandler.playButtonClick();
                     intent = new Intent(MainActivity.this, ExpertModeGameActivity.class);
                     startActivityForResult(intent, REQUEST_CODE_EXPERT_MODE);
+                    mIsNewActivityStart = true;
                     Animatoo.animateSlideLeft(MainActivity.this);
                     break;
                 case R.id.button_Exit:
-                    if (haveSound) { mpBtn.start(); }
-                    finish();
+                    SoundHandler.playButtonClick();
+                    finishAffinity();
+                    SoundHandler.stopMusic();
                     break;
             }
         }
@@ -147,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
             backToast.cancel();
             super.onBackPressed();
+            SoundHandler.stopMusic();
             return;
         } else {
             backToast = Toast.makeText(this, R.string.string_pressAgain_to_exit, Toast.LENGTH_SHORT);
@@ -169,15 +145,14 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("\nBest score data:", "points:" + points + "\nname:" + name + "\n");
                     Date date = new Date();
 
-                    String record = "" + name +";"+Integer.toString(points) + ";" + formatter.format(date);
+                    String record = "" + name + ";" + Integer.toString(points) + ";" + formatter.format(date);
 
                     Set<String> recordsSet = new HashSet<String>(mRecordsSharedPreferences.getStringSet(RECORDS_KEY, new TreeSet<String>()));
                     recordsSet.add(record);
 
-                    mRecordsEditor.putStringSet(RECORDS_KEY,recordsSet);
+                    mRecordsEditor.putStringSet(RECORDS_KEY, recordsSet);
                     mRecordsEditor.apply();
-                }
-                else {//try again
+                } else {//try again
                     if (data != null) {
                         Intent intent = new Intent(MainActivity.this, ExpertModeGameActivity.class);
                         startActivityForResult(intent, REQUEST_CODE_EXPERT_MODE);
@@ -193,56 +168,36 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void startAnimated() {
+        LinearLayout constraintLayout = findViewById(R.id.LinearLayoutStatPage);
+        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(2000);
+        animationDrawable.start();
+    }
+
+    public void initSound() {
+        SoundHandler.init(this, R.raw.background_music, R.raw.click_02, R.raw.correct3, R.raw.wrong);
+        SoundHandler.turnMusicOn(true);
+    }
+
     @Override
     protected void onPause() {
-        if (this.isFinishing()) { //basically BACK was pressed from this activity
-            mpBackground.stop();
-            mpBackground.release();
-            flagExit = true;
-        }
-        Context context = getApplicationContext();
-        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
-        if (!taskInfo.isEmpty()) {
-            ComponentName topActivity = taskInfo.get(0).topActivity;
-//            if (!topActivity.getPackageName().equals(context.getPackageName())) {
-//                if (mpBackground != null) {
-//                    if (mpBackground.isPlaying()) {
-//                        mpBackground.stop();
-//                        mpBackground.release();
-//                    }
-//                }
-//            }
-        }
         super.onPause();
     }
 
     @Override
     protected void onResume() {
-        if (haveMusic) {
-            if (mpBackground != null) {
-                mpBackground.setLooping(true);
-                mpBackground.start();
-            } else {
-                mpBackground = MediaPlayer.create(this, R.raw.background_music);
-                mpBackground.setLooping(true);
-                mpBackground.start();
-            }
-        }
-        else {
-            if (mpBackground != null) {
-                    mpBackground.release();
-            }
-        }
+        SoundHandler.playMusic();
+        mIsNewActivityStart = false;
         super.onResume();
     }
 
     @Override
     protected void onStop() {
+        if (!mIsNewActivityStart && !this.isFinishing()) //app goes to bacground
+            SoundHandler.stopMusic();
         super.onStop();
-        if (haveMusic)
-            if (!flagExit)
-                mpBackground.pause();
     }
 
 

@@ -33,13 +33,14 @@ public class StageActivity extends AppCompatActivity {
     private int mMaxAvailableStage;
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
+    private boolean mIsNewActivityStart = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_stages);
+        SoundHandler.playMusic();
 
-//        mMaxAvailableStage = getIntent().getIntExtra("stage",1);
         mViewPager=findViewById(R.id.pager_view);
         mDotsLayout = findViewById(R.id.dots_layout);
         mStartButton = findViewById(R.id.stage_start_button);
@@ -66,10 +67,11 @@ public class StageActivity extends AppCompatActivity {
         mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (MainActivity.haveSound) { MainActivity.mpBtn.start(); }
+                SoundHandler.playButtonClick();
                 Intent intent = new Intent(StageActivity.this,LevelsActivity.class);
                 intent.putExtra("stage",mCurrentPage);
                 startActivityForResult(intent,1);
+                mIsNewActivityStart = true;
                 Animatoo.animateSlideLeft(StageActivity.this);
             }
         });
@@ -169,6 +171,7 @@ public class StageActivity extends AppCompatActivity {
             Intent intent = new Intent(StageActivity.this,LevelsActivity.class);
             intent.putExtra("stage",stage);
             startActivityForResult(intent,1);
+            mIsNewActivityStart = true;
             Animatoo.animateSlideLeft(StageActivity.this);
         }
     }
@@ -203,5 +206,18 @@ public class StageActivity extends AppCompatActivity {
                 mStagesSlides.add(new StageSlide((String)getResources().getText(R.string.string_hard_stage),(String)getResources().getText(R.string.high_stage_description),R.drawable.smart_girl));
                 break;
         }
+    }
+    @Override
+    protected void onResume() {
+        SoundHandler.playMusic();
+        mIsNewActivityStart = false;
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        if (!mIsNewActivityStart && !this.isFinishing())
+            SoundHandler.stopMusic();
+        super.onStop();
     }
 }

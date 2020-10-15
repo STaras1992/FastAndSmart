@@ -48,12 +48,14 @@ public class LevelsActivity extends AppCompatActivity {
     Button buttonLevel_11;
     Button buttonLevel_12;
     Button mBackButton;
+    private boolean mIsNewActivityStart = false;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.levels_layout);
+        SoundHandler.playMusic();
 
         mStage = (int) getIntent().getIntExtra("stage", 0);
 
@@ -115,8 +117,7 @@ public class LevelsActivity extends AppCompatActivity {
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (MainActivity.haveSound) { MainActivity.mpBtn.start(); }
-                else { MainActivity.mpBtn.stop(); }
+                SoundHandler.playButtonClick();
                 setResult(RESULT_CANCELED);
                 finish();
             }
@@ -150,7 +151,7 @@ public class LevelsActivity extends AppCompatActivity {
     public class LevelButtonCliclListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            if (MainActivity.haveSound) { MainActivity.mpBtn.start(); }
+            SoundHandler.playButtonClick();
             Intent intent = new Intent(LevelsActivity.this, GameActivity.class);
             intent.putExtra("stage", mStage);
 
@@ -212,6 +213,7 @@ public class LevelsActivity extends AppCompatActivity {
                 default:
                     break;
             }
+            mIsNewActivityStart=true;
             Animatoo.animateCard(LevelsActivity.this);
         }
     }
@@ -233,6 +235,7 @@ public class LevelsActivity extends AppCompatActivity {
                     intent.putExtra("level", level + 1);
                     intent.putExtra("stage", mStage);
                     startActivityForResult(intent, FIRST_GAME);
+                    mIsNewActivityStart=true;
                 } else
                     stageCompleted();
             } else {
@@ -252,6 +255,7 @@ public class LevelsActivity extends AppCompatActivity {
                     intent.putExtra("stage", mStage);
                     intent.putExtra("tutorial passed", true);
                     startActivityForResult(intent, RESTART);
+                    mIsNewActivityStart=true;
                 } else {
                     setResult(RESULT_CANCELED);
                     finish();
@@ -706,6 +710,20 @@ public class LevelsActivity extends AppCompatActivity {
 
         mEditor.putInt(CURRENT_LEVEL, level);
         mEditor.apply();
+    }
+
+    @Override
+    protected void onResume() {
+        SoundHandler.playMusic();
+        mIsNewActivityStart = false;
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        if (!mIsNewActivityStart && !this.isFinishing())
+            SoundHandler.stopMusic();
+        super.onStop();
     }
 }
 

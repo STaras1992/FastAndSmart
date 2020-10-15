@@ -116,6 +116,8 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.classic_mode_game_layout);
 
+        SoundHandler.stopMusic();
+
         mStage = getIntent().getIntExtra("stage", 0);
         mLevel = getIntent().getIntExtra("level", 0);
         mIsTutorialDone = getIntent().getBooleanExtra("tutorial passed",true);
@@ -704,14 +706,10 @@ public class GameActivity extends AppCompatActivity {
             Card swipedCard = (Card) dataObject;
             mLastAnswer =(String)mLeftAnswer.getText();
             if (swipedCard.getRightAnswer().equals(mLeftAnswer.getText())) {
-                if (MainActivity.haveSound) {
-                    mpCorrect.start();
-                }
+                SoundHandler.playCorrectAnswer();
                 actionOnQuestionFinish(CORRECT_ANSWER);
             } else {
-                if (MainActivity.haveSound) {
-                    mpWrong.start();
-                }
+                SoundHandler.playWrongAnswer();
                 actionOnQuestionFinish(WRONG_ANSWER);
             }
 
@@ -724,14 +722,10 @@ public class GameActivity extends AppCompatActivity {
             Card swipedCard = (Card) dataObject;
             mLastAnswer =(String)mRightAnswer.getText();
             if (swipedCard.getRightAnswer().equals(mRightAnswer.getText())) {
-                if (MainActivity.haveSound) {
-                    mpCorrect.start();
-                }
+                SoundHandler.playCorrectAnswer();
                 actionOnQuestionFinish(CORRECT_ANSWER);
             } else {
-                if (MainActivity.haveSound) {
-                    mpWrong.start();
-                }
+                SoundHandler.playWrongAnswer();
                 actionOnQuestionFinish(WRONG_ANSWER);
             }
 
@@ -744,14 +738,10 @@ public class GameActivity extends AppCompatActivity {
             Card swipedCard = (Card) dataObject;
             mLastAnswer =(String)mTopAnswer.getText();
             if (swipedCard.getRightAnswer().equals(mTopAnswer.getText())) {
-                if (MainActivity.haveSound) {
-                    mpCorrect.start();
-                }
+                SoundHandler.playCorrectAnswer();
                 actionOnQuestionFinish(CORRECT_ANSWER);
             } else {
-                if (MainActivity.haveSound) {
-                    mpWrong.start();
-                }
+                SoundHandler.playWrongAnswer();
                 actionOnQuestionFinish(WRONG_ANSWER);
             }
         }
@@ -764,14 +754,10 @@ public class GameActivity extends AppCompatActivity {
             Card swipedCard = (Card) dataObject;
             mLastAnswer =(String)mBottomAnswer.getText();
             if (swipedCard.getRightAnswer().equals(mBottomAnswer.getText())) {
-                if (MainActivity.haveSound) {
-                    mpCorrect.start();
-                }
+                SoundHandler.playCorrectAnswer();
                 actionOnQuestionFinish(CORRECT_ANSWER);
             } else {
-                if (MainActivity.haveSound) {
-                    mpWrong.start();
-                }
+                SoundHandler.playWrongAnswer();
                 actionOnQuestionFinish(WRONG_ANSWER);
             }
         }
@@ -859,6 +845,7 @@ public class GameActivity extends AppCompatActivity {
             return textView;
         }
     }
+
 }
 
 

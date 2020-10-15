@@ -12,26 +12,28 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 import java.util.Set;
 
-public class BestScoresActivity extends Activity
-{
+public class BestScoresActivity extends Activity {
     final String RECORDS_PREFERENCES = "best scores";
-    final String RECORDS_KEY ="records";
+    final String RECORDS_KEY = "records";
     ListView mListView;
     Button bckBtn;
     ArrayList<DataList> mListOfRecords;
+    private boolean mIsNewActivityStart = false;
 
-    public void startAnimated (RelativeLayout relativeLayout) {
+    public void startAnimated(RelativeLayout relativeLayout) {
         AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
         animationDrawable.setEnterFadeDuration(3000);
         animationDrawable.setExitFadeDuration(3000);
         animationDrawable.start();
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_scores);
+        SoundHandler.playMusic();
 
-        startAnimated ((RelativeLayout)findViewById(R.id.layout_scores));
+        startAnimated((RelativeLayout) findViewById(R.id.layout_scores));
 
         bckBtn = findViewById(R.id.button_levels_back);
         mListView = findViewById(R.id.list_view);
@@ -43,33 +45,31 @@ public class BestScoresActivity extends Activity
         bckBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (MainActivity.haveSound) { MainActivity.mpBtn.start(); }
-                //else { MainActivity.mpBtn.stop(); }
+                SoundHandler.playButtonClick();
                 finish();
             }
         });
     }
 
-    private ArrayList<DataList> loadRecords(){
-        ArrayList<DataList> dataArray=new ArrayList<>();
-        SharedPreferences recordsInMemory = getSharedPreferences(RECORDS_PREFERENCES,MODE_PRIVATE);
+    private ArrayList<DataList> loadRecords() {
+        ArrayList<DataList> dataArray = new ArrayList<>();
+        SharedPreferences recordsInMemory = getSharedPreferences(RECORDS_PREFERENCES, MODE_PRIVATE);
 
-        Set<String> recordSet = recordsInMemory.getStringSet(RECORDS_KEY,null);
-        if(recordSet == null){
+        Set<String> recordSet = recordsInMemory.getStringSet(RECORDS_KEY, null);
+        if (recordSet == null) {
             System.out.println("There is no records");
             //
-        }
-        else{
+        } else {
             String[] temp;
             String name;
             String points;
             String date;
-            for (String singleRecord:recordSet) {
-                temp=singleRecord.split(";");
-                name=temp[0];
-                points=temp[1];
-                date=temp[2];
-                dataArray.add(new DataList(name,Integer.parseInt(points),date));
+            for (String singleRecord : recordSet) {
+                temp = singleRecord.split(";");
+                name = temp[0];
+                points = temp[1];
+                date = temp[2];
+                dataArray.add(new DataList(name, Integer.parseInt(points), date));
             }
         }
 
@@ -81,11 +81,25 @@ public class BestScoresActivity extends Activity
         public int score;
         public String date;
 
-        public DataList(String name,int score,String date){
+        public DataList(String name, int score, String date) {
             this.name = name;
             this.score = score;
             this.date = date;
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        SoundHandler.playMusic();
+        mIsNewActivityStart = false;
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        if (!mIsNewActivityStart && !this.isFinishing())
+            SoundHandler.stopMusic();
+        super.onStop();
     }
 }
